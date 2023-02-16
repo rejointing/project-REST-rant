@@ -5,6 +5,8 @@ const express = require('express')
 
 const app = express()
 
+app.set('views', __dirname + '/views')
+
 app.use('/places', require('./controllers/places'))
 
 app.get('/', (req, res) => {
