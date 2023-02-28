@@ -1,3 +1,4 @@
+// Modules and Globals
 // require express to start using it 
 require('dotenv').config()
 

@@ -5,32 +5,35 @@ const Def = require('../layouts/default')
 function index (data) {
     let placesFormatted = data.places.map((place) => {
         return (
-            <div>
+            <div className="container">
+                <div className="row">
+            <div className="col-2">
                 <h2>{place.name}</h2>
-                <img src={place.pic} alt={place.name}></img>
-            </div>
-            )
+                <p>
+                    {place.cuisines}
+                    </p>
+                <img src={place.pic} alt={place.name} />
+                </div>
+                <div className="col-2">
+                <p>
+                    Located in {place.city}, {place.state}
+                </p>
+                </div>
+                </div>
+                </div>
+        )
     })
-
-    return (
-        <Def>
+    return ( 
+        <Def> 
             <main>
-                <h1>PLACES INDEX PAGE</h1>
-                {placesFormatted}
-            </main>
-        </Def>
+                <h1>Places to Rant or Rave About</h1>
+                <div className="row">
+                    {placesFormatted}
+                    </div>
+                    </main>
+                    </Def>
     )
-
     }
 
-//function index (html) {
-  //  return (
-    //    <Def>
-      //      <main>
-        //        <h1>INDEX</h1>
-          //  </main>
-        //</Def>
-    //)
-//}
 
 module.exports = index
