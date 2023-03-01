@@ -1,7 +1,7 @@
-const app = require('express').Router()
+const router = require('express').Router()
 
 // GET /places
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     let places = [{
         name: 'H-Thai-ML',
         city: 'Tokyo',
@@ -22,16 +22,17 @@ app.get('/', (req, res) => {
     res.render('places/index', { places })
 })
 
-app.get('/new', (req, res) => {
+router.get('/new', (req, res) => {
     res.render('places/new')
 })
 
-app.get('/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     res.render('/places/:id')
 })
 
-app.post('/places', (req, res) => {
-    res.redirect('/places')
+router.post('/places', (req, res) => {
+    console.log(req.body)
+    res.send('POST /places')
 })
 
-module.exports = app
+module.exports = router
