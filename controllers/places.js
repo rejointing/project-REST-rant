@@ -1,10 +1,6 @@
 const app = require('express').Router()
 
 // GET /places
-app.get('/new', (req, res) => {
-    res.render('places/new')
-})
-
 app.get('/', (req, res) => {
     let places = [{
         name: 'H-Thai-ML',
@@ -24,6 +20,18 @@ app.get('/', (req, res) => {
     }]
 
     res.render('places/index', { places })
+})
+
+app.get('/new', (req, res) => {
+    res.render('places/new')
+})
+
+app.get('/:id', (req, res) => {
+    res.render('/places/:id')
+})
+
+app.post('/places', (req, res) => {
+    res.redirect('/places')
 })
 
 module.exports = app
