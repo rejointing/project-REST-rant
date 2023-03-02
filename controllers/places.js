@@ -11,7 +11,7 @@ router.get('/new', (req, res) => {
     res.render('places/new')
 })
 
-router.get('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     let id = Number(req.params.id)
     if (isNaN(id)) {
         res.render('error404')
@@ -20,7 +20,9 @@ router.get('/:id', (req, res) => {
         res.render('error404')
     }
     else{
-    res.render('places/show', { place: places[id] })
+        places.splice(id, 1)
+        res.redirect('/places')
+    //res.render('places/show', { place: places[id], id })
     }
 })
 
