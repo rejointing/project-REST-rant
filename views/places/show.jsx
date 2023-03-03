@@ -18,6 +18,27 @@ function show (data) {
                         <strong>- {c.author}</strong>
                     </h3>
                     <h4>Rating: {c.stars}</h4>
+                    <form method="POST" action={`/places/${data.comment.id}?_method=POST` }>
+                    <div className="form-group">
+                        <label htmlFor="Author">Author</label>
+                        <input className="form-control" id="author" name="author" required />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="Content">Content</label>
+                        <input className="form-control" id="content" name="content" required />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="Star Rating">Star Rating</label>
+                        <input className="form-control" id="starRating" name="starRating" required />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="Rant">Rant</label>
+                        <input className="form-control" id="rant" name="rant" required />
+                    </div>
+                    <button type="submit" className=" btn btn-comment">
+                        Comment
+                    </button>
+                    </form>
                 </div>
             )
         })
@@ -43,10 +64,10 @@ function show (data) {
                         Serving {data.place.cuisines}
                     </h4>
                 <h1>{ data.place.name }</h1>
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning">
+                <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">
                     Edit
                 </a>
-                <form method="POST" action={`/places/${data.id}?_method=DELETE` }>
+                <form method="POST" action={`/places/${data.place.id}?_method=DELETE` }>
                     <button type="submit" className="btn btn-danger">
                         Delete
                     </button>
