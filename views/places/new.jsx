@@ -38,7 +38,7 @@ function new_form (data) {
                         <input className="form-control" id="cuisines" name="cuisines" required />
                     </div>
                     <div className="form-group col-sm-4">
-                        <label for="founded">Founded Year</label>
+                        <label htmlFor="founded">Founded Year</label>
                         <input 
                          type="number"
                          className="form-control"
